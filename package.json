@@ -1,0 +1,29 @@
+{
+  "name": "aliasmail-relay",
+  "version": "1.0.0",
+  "description": "Self-hostable privacy email relay and webhook gateway for AliasMail and Cloudflare Email Routing",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "keywords": [
+    "aliasmail",
+    "email-relay",
+    "self-hosted",
+    "webhooks",
+    "privacy",
+    "cloudflare-workers",
+    "hmac-sha256"
+  ],
+  "author": "Anshu Sharma",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

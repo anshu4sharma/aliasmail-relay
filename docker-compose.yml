@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  aliasmail-relay:
+    build: .
+    container_name: aliasmail-relay
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - ALIASMAIL_WEBHOOK_SECRET=your_hmac_secret_here
+      - FORWARD_URLS=http://host.docker.internal:8080/webhook
+      # - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+      # - SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
